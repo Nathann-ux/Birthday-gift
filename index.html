@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="img/flowers.png" type="image/x-icon">
-    <title>for special person</title>
+    <title>foryou</title>
     <style type="text/css">
         @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
         @import url('https://fonts.googleapis.com/css?family=Amatic+SC');
@@ -139,6 +139,106 @@
         .text-right {
             text-align: right;
         }
+
+        /* =========================
+   PETUNJUK KLIK
+   ========================= */
+
+        .click-hint {
+            position: fixed;
+            z-index: 9999;
+
+            /* posisi petunjuk di luar buku */
+            left: calc(50% + 150px);
+            top: calc(50% + 100px);
+
+            width: 240px;
+            height: 150px;
+
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .hint-text {
+            position: absolute;
+
+            right: 0;
+            bottom: 0;
+
+            color: white;
+            font-family: 'Indie Flower', cursive;
+            font-size: 32px;
+
+            text-shadow:
+                0 2px 5px rgba(0, 0, 0, .2);
+
+            animation: hintFloat 1.5s ease-in-out infinite;
+        }
+
+        .hint-arrow {
+            position: absolute;
+
+            left: 0;
+            top: 0;
+
+            width: 180px;
+            height: 120px;
+
+            animation: arrowMove 1.5s ease-in-out infinite;
+        }
+
+
+        /* animasi tulisan */
+        @keyframes hintFloat {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+
+
+        /* animasi panah */
+        @keyframes arrowMove {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(-5px, -5px);
+            }
+        }
+
+
+        /* =========================
+   KHUSUS HP
+   ========================= */
+
+        @media (max-width: 600px) {
+
+            .click-hint {
+                left: 58%;
+                top: 63%;
+
+                width: 42vw;
+                height: 25vw;
+            }
+
+            .hint-text {
+                font-size: clamp(22px, 7vw, 30px);
+            }
+
+            .hint-arrow {
+                width: 30vw;
+                height: auto;
+            }
+        }
     </style>
     <link rel="stylesheet" type="text/css" href="https://cdn.prinsh.com/NathanPrinsley-textstyle/nprinsh-stext.css" />
 </head>
@@ -170,23 +270,33 @@
 
                     <audio id="musik" src="Music/love.mp3" loop></audio>
 
-        <script>
-             document.addEventListener("pointerdown", function () {
-             const musik = document.getElementById("musik");
+                    <script>
+                        document.addEventListener("pointerdown", function () {
+                            const musik = document.getElementById("musik");
 
-                   musik.play()
-                  .then(() => {
-            console.log("Musik berhasil diputar!");
-        })
-        .catch((error) => {
-            console.error("Musik gagal diputar:", error);
-        });
-}, { once: true });
-</script>
+                            musik.play()
+                                .then(() => {
+                                    console.log("Musik berhasil diputar!");
+                                })
+                                .catch((error) => {
+                                    console.error("Musik gagal diputar:", error);
+                                });
+                        }, { once: true });
+                    </script>
+
         </div>
+    </div>
+    <div class="click-hint">
+        <span class="hint-text">klik here</span>
+
+        <svg class="hint-arrow" viewBox="0 0 200 120">
+            <path d="M180 100 C150 55, 110 25, 55 45" fill="none" stroke="white" stroke-width="4"
+                stroke-linecap="round" />
+
+            <path d="M55 45 L70 35 M55 45 L65 58" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" />
+        </svg>
     </div>
 
 </body>
 
 </html>
-
