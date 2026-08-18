@@ -140,6 +140,39 @@
             text-align: right;
         }
 
+        .click-here {
+    position: absolute;
+    top: 20px; /* atur posisi vertikal */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 10;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.click-here span {
+    font-size: 18px;
+    display: block;
+}
+
+.arrow {
+    font-size: 35px;
+    line-height: 35px;
+    margin-top: 3px;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(8px);
+    }
+}
+        
     </style>
     <link rel="stylesheet" type="text/css" href="https://cdn.prinsh.com/NathanPrinsley-textstyle/nprinsh-stext.css" />
 </head>
@@ -151,6 +184,12 @@
             <img src="https://assets.cardly.net/production/artwork/8/9/8/898e1f13-0dfa-6d62-664e-070005c2f046/detail/cute-happy-birthday-dog-p1-r2.webp"
                 width="100%" height="100%">
         </div>
+
+        <div class="click-here">
+    <span>Klik Here</span>
+    <div class="arrow">↓</div>
+</div>
+        
         <div class="details">
             <h4 class="color1">Happy Birthday</h2>
                 <h4 class="color2 margin">To You</h3>
