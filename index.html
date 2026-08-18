@@ -168,10 +168,21 @@
                     <p class="text-right">-natan</p>
                     <p class="text-right"></p>
 
-                    <audio controls autoplay loop>
-                        <source src="./Music/love.mp3" type="audio/mpeg">
-                     </audio>
+                    <audio id="musik" src="Music/love.mp3" loop></audio>
 
+        <script>
+             document.addEventListener("pointerdown", function () {
+             const musik = document.getElementById("musik");
+
+                   musik.play()
+                  .then(() => {
+            console.log("Musik berhasil diputar!");
+        })
+        .catch((error) => {
+            console.error("Musik gagal diputar:", error);
+        });
+}, { once: true });
+</script>
         </div>
     </div>
 
